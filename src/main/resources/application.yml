@@ -8,3 +8,5 @@ spring:
       maximum-pool-size: 5
       minimum-idle: 2
       pool-name: TEST-POOL
+server:
+  port: 8883
