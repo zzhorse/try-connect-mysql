@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  my-app:
+    build:
+      context: .
+    ports:
+      - '8081:8883'
+    environment:
+      - MYSQL_HOST=my-mysql
+      - MYSQL_PORT=3306
+    volumes:
+      - ./:/program
+    depends_on:
+      - my-mysql
+    command: ./mvnw spring-boot:run
+  my-mysql:
+    image: mysql:5.7
+    ports:
+      - "13306:3306"
+    volumes:
+      - /Users/horse/OtherProjects/data:/var/lib/mysql
